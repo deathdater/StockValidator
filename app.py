@@ -1,12 +1,13 @@
 from Stock import Stock
-import csv
+import csv,os
+
 with open('data.csv', newline='\n') as f:
     reader = csv.reader(f)
     stock_array = []
 #    number_of_records = len(list(f))
     for row in reader:
 
-        print()
+        #print()
         for i in range(13): ## Intialize single Stock
             Stock.stk_symbol = row[0]
             Stock.stk_open = row[1]
@@ -29,10 +30,18 @@ with open('data.csv', newline='\n') as f:
                                      Stock.stk_year_change,Stock.stk_month_change))
 
 #        print(Stock.stk_symbol)
-    Stock.printStockDetails(stock_array[2])
-    #print(stock_array)
-            #print(row[i], end='\t')
-      #  print(row[0])
+    #Stock.printStockDetails(stock_array[2])
+
+stockname= input("Enter the Stock Name (As Listed on NSE) :")
+## Searching the stock  based on user input
+for obj in stock_array:
+    if obj.stk_symbol == stockname:
+        print("Found it")
+        obj.printStockDetails()
+        break
+    else:
+       os.system('clear')
+       print("Searching..")
 
 '''
 stock_data_file = open("data.csv", "r")
