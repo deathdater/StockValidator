@@ -29,8 +29,8 @@ with open('data.csv', newline='\n') as f:
                                      Stock.stk_year_change,Stock.stk_month_change))
 
 #        print(Stock.stk_symbol)
-
-    print(stock_array.__getattribute__(stk_symbol))
+    Stock.printStockDetails(stock_array[2])
+    #print(stock_array)
             #print(row[i], end='\t')
       #  print(row[0])
 
