@@ -1,4 +1,6 @@
 class Stock:
+    is_buy = False
+    is_sell = False
     def __init__(self,stk_symbol,stk_open,stk_high,stk_low,stk_lasttradeprice,stk_change,stk_change_percent,stk_volume,stk_value,stk_year_high,stk_year_low,stk_year_change,stk_month_change):
         self.stk_symbol=stk_symbol
         self.stk_open=stk_open
@@ -13,8 +15,9 @@ class Stock:
         self.stk_year_low=stk_year_low
         self.stk_year_change=stk_year_change
         self.stk_month_change=stk_month_change
+        self.set_buy()
 
-    def printStockDetails(self):
+    def print_stock_details(self):
         print("Symbol:            " +self.stk_symbol)
         print("Open Price:        " +self.stk_open)
         print("High:              " +self.stk_high)
@@ -28,3 +31,11 @@ class Stock:
         print("52 Week Low:       " +self.stk_year_low)
         print("365 Days % Change: " +self.stk_year_change)
         print("30 Days % Change:  " +self.stk_month_change)
+        print("Buy:               " + str(self.is_buy))
+        print("Sell:              " + str(self.is_sell))
+
+    def set_buy(self):
+        if self.stk_lasttradeprice >= self.stk_open:
+            self.is_buy = True
+        else:
+            self.is_sell = True

@@ -23,6 +23,7 @@ with open('data.csv', newline='\n') as f:
             Stock.stk_year_change = row[11]
             Stock.stk_month_change = row[12]
 
+
         stock_array.append(Stock(Stock.stk_symbol,Stock.stk_open,Stock.stk_high,
                                      Stock.stk_low,Stock.stk_lasttradeprice,Stock.stk_change,
                                      Stock.stk_change_percent,Stock.stk_volume,
@@ -30,15 +31,44 @@ with open('data.csv', newline='\n') as f:
                                      Stock.stk_year_change,Stock.stk_month_change))
 
 #        print(Stock.stk_symbol)
-    #Stock.printStockDetails(stock_array[2])
+    # Stock.print_stock_details(stock_array[2])
+choice = 0
+while choice is not str(4):
+    print("\n\n\nSelect your Choice:\n\t1. Search"
+          "\n\t1. Find Intraday Buys Calls"
+          "\n\t3. Find Intraday Sells Calls"
+          "\n\t4. Quit")
+    choice = input("\nEnter Your Choice :")
+    if choice == str(1):
+        stockname = input("Enter the Stock Name (As Listed on NSE) :")
+        ## Searching the stock  based on user input
+        for obj in stock_array:
+            if obj.stk_symbol == stockname.upper():
+                print("Found it ..!!")
+                obj.print_stock_details()
+                break
+            else:
+                None
 
-stockname= input("Enter the Stock Name (As Listed on NSE) :")
-## Searching the stock  based on user input
-for obj in stock_array:
-    if obj.stk_symbol == stockname:
-        print("Found it")
-        obj.printStockDetails()
-        break
+    elif choice == str(2):
+
+        ## Searching the stock based on Buy Trend
+        for obj in stock_array:
+            if obj.is_buy == True:
+                print(obj.stk_symbol)
+            else:
+                None
+
+    elif choice == str(3):
+        ## Searching the stock based on Sell Trend
+        for obj in stock_array:
+            if obj.is_sell == True:
+                print(obj.stk_symbol)
+            else:
+                None
+
+    elif choice == str(4):
+        exit(0)
+
     else:
-       os.system('clear')
-       print("Searching..")
+        print("\n\nIncorrect Choice!! Try Again")
