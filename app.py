@@ -30,7 +30,7 @@ with open('data.csv', newline='\n') as f:
 
 #        print(Stock.stk_symbol)
 
-    print(stock_array.count())
+    print(stock_array.__getattribute__(stk_symbol))
             #print(row[i], end='\t')
       #  print(row[0])
 

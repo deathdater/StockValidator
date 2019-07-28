@@ -14,3 +14,17 @@ class Stock:
         self.stk_year_change=stk_year_change
         self.stk_month_change=stk_month_change
 
+    def printStockDetails(self):
+        print("Symbol:            " +self.stk_symbol)
+        print("Open Price:        " +self.stk_open)
+        print("High:              " +self.stk_high)
+        print("Low:               " +self.stk_low)
+        print("LTP:               " +self.stk_lasttradeprice)
+        print("Change:            " +self.stk_change)
+        print("Change %age:       " +self.stk_change_percent)
+        print("Traded Volume:     " +self.stk_volume)
+        print("Traded Value:      " +self.stk_value)
+        print("52 Week High:      " +self.stk_year_high)
+        print("52 Week Low:       " +self.stk_year_low)
+        print("365 Days % Change: " +self.stk_year_change)
+        print("30 Days % Change:  " +self.stk_month_change)
