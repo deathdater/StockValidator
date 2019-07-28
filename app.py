@@ -42,17 +42,3 @@ for obj in stock_array:
     else:
        os.system('clear')
        print("Searching..")
-
-'''
-stock_data_file = open("data.csv", "r")
-    print(stock_data_file.readline())
-
-if(stock_data_file.readable()):
-    for stock in stock_data_file.readlines():
-        print(stock)
-else:
-    print("File Not Readable")
-
-stock_data_file.close()
-
-'''
